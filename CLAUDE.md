@@ -50,6 +50,23 @@ If he asks you to skip these, remind him once why they exist, then do what he de
 - Test the scoring offline with a stub client before handing a lab over; say plainly that the real-model run
   has not happened yet when it hasn't.
 
+## LOG.md — the bridge to posts
+
+`LOG.md` is the one place that says what was done. At the end of every session, before the last commit, add
+an entry at the top:
+
+```
+## YYYY-MM-DD — Lab N: short name
+- Done: what changed this session, in plain words.
+- Numbers: only from this lab's own runs (model, runs, the key figures); "not run yet" when there are none.
+- Surprised: what did not go as predicted, or "nothing yet".
+- Takeaway: one line a reader could quote.
+- Hooks: two or three first lines for a post.
+```
+
+Social posts (LinkedIn, X, Threads) are written in the owner's chat project from this log and his voice
+notes, never in this repository. A post never states a number or conclusion that is not in the log.
+
 ## Rules
 
 - Never invent a number. A lab's numbers come from its own runs; a missing number is written as missing.
