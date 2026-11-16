@@ -38,10 +38,23 @@ The labs exist so the owner learns. Never do his part for him:
 Each lab README therefore has a "Your part, before any code runs" section and "Questions to answer out loud".
 If he asks you to skip these, remind him once why they exist, then do what he decides.
 
+## The week: read → your part → lab → post
+
+One lab a week. Reading comes first and is the theory for both the lab and the post:
+
+1. **Read first** — the lab's sources from `reading.md` (45–60 minutes), after a 5-minute written first guess.
+2. **Your part** — check the ground truth, add own cases, predict.
+3. **Lab** — run, read the failures, compare with the reading.
+4. **Post** — from `LOG.md` and his voice note; the reading becomes the "how others do it" part, quoted and
+   linked.
+
+When a new lab is built, fix its reading first: one or two primary sources, links checked in a browser or a
+search, never from memory. Update `reading.md` and the lab README's "Read first" section.
+
 ## How a lab is built
 
 - Folder `NN-short-name/` with `README.md`, `lab.py`, its data files, and `results/` (git-ignored).
-- README sections: the principle in one sentence · why it matters later · the setup · your part before any
+- README sections: the principle in one sentence · why it matters later · read first · the setup · your part before any
   code runs · run it · read the results yourself · how big systems do this · in Theo · questions to answer out
   loud · what went into this lab (an honest line on AI help).
 - Python, the official `anthropic` SDK, `pydantic`. Minimal: one file, readable top to bottom, under ~250 lines.

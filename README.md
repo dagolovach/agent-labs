@@ -9,6 +9,8 @@ re-run on a new model.
 | 1 | [Structured output](01-structured-output/) | "Reply in JSON" is a wish; a schema guarantees shape, never truth |
 | 2 | Quarantine (next) | Untrusted text never reaches the model that has tools |
 
+Each lab starts with its reading: [reading.md](reading.md).
+
 ## Running a lab
 
 ```bash

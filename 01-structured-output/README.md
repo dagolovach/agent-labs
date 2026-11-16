@@ -7,6 +7,17 @@ the meaning yourself. A schema guarantees the shape of the answer. It does not g
 model with tools a checked object, never free text. That only works if the object is guaranteed to have a
 shape, and if code checks what is inside it.
 
+## Read first (about 45 minutes)
+
+Before reading, write in two lines what you think a schema guarantees and what it doesn't. Then:
+
+- [Anthropic docs: Structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
+  — what the API guarantees when you give it a schema, and the Python `messages.parse()` helper this lab uses.
+- [Eugene Yan: Patterns for building LLM-based systems & products](https://eugeneyan.com/writing/llm-patterns)
+  — read the guardrails and defensive UX parts: why checks sit around the model even when its output is valid.
+
+Note the one idea you will test. After the lab, come back: what matched your numbers, what didn't?
+
 ## The setup
 
 Twenty short messages to an IT help desk (`messages.json`). Each one has to become a ticket with five fields:

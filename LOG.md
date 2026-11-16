@@ -2,6 +2,15 @@
 
 Newest first. One entry per working session; posts are written from these entries.
 
+## 2026-11-16 — Reading before every lab
+
+- Done: added `reading.md` (checked sources for labs 1–7, placeholders for 8–12) and a "Read first" section to
+  lab 1. The week is now read → your part → lab → post.
+- Numbers: none.
+- Surprised: nothing yet.
+- Takeaway: the reading is the theory; the lab is the test; the post says where they agreed.
+- Hooks: none yet.
+
 ## 2026-11-16 — Lab 1: structured output
 
 - Done: built the lab: 20 awkward help-desk messages, draft labels for 2026-11-16, two arms (ask for JSON vs
