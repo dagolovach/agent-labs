@@ -1,0 +1,26 @@
+{
+  "_note": "Draft labels for 'today' = 2026-11-16 (a Monday). A list means any of these values counts as correct. CHECK EVERY ROW YOURSELF before running: these are the ground truth, and they are your call, not the model's.",
+  "today": "2026-11-16",
+  "labels": {
+    "1":  {"requester": "Priya",   "request_type": ["access"],                 "urgency": ["high"],           "due_date": ["2026-11-17"]},
+    "2":  {"requester": "Marco",   "request_type": ["question"],               "urgency": ["low"],            "due_date": [null]},
+    "3":  {"requester": "Dana",    "request_type": ["bug"],                    "urgency": ["low"],            "due_date": [null]},
+    "4":  {"requester": "Sam",     "request_type": ["bug"],                    "urgency": ["high"],           "due_date": [null]},
+    "5":  {"requester": "Lena",    "request_type": ["access"],                 "urgency": ["normal"],         "due_date": ["2026-11-30", "2026-12-01"]},
+    "6":  {"requester": "Raj",     "request_type": ["question"],               "urgency": ["normal"],         "due_date": ["2026-11-20", "2026-11-27"]},
+    "7":  {"requester": "Kim",     "request_type": ["bug"],                    "urgency": ["high"],           "due_date": ["2026-11-19"]},
+    "8":  {"requester": "Alex",    "request_type": ["other"],                  "urgency": ["normal", "low"],  "due_date": ["2026-12-03"]},
+    "9":  {"requester": "Jordan",  "request_type": ["question"],               "urgency": ["low"],            "due_date": [null]},
+    "10": {"requester": "Elena",   "request_type": ["access"],                 "urgency": ["normal"],         "due_date": ["2026-11-30"]},
+    "11": {"requester": "unknown", "request_type": ["bug", "other"],           "urgency": ["low", "normal"],  "due_date": [null]},
+    "12": {"requester": "Camille", "request_type": ["access", "bug"],          "urgency": ["normal", "high"], "due_date": [null]},
+    "13": {"requester": "Omar",    "request_type": ["bug", "access", "other"], "urgency": ["low"],            "due_date": [null]},
+    "14": {"requester": "Nina",    "request_type": ["other"],                  "urgency": ["high"],           "due_date": ["2026-11-17", "2026-11-18"]},
+    "15": {"requester": "Grace",   "request_type": ["question"],               "urgency": ["normal"],         "due_date": ["2026-11-18"]},
+    "16": {"requester": "Victor",  "request_type": ["bug"],                    "urgency": ["low"],            "due_date": [null]},
+    "17": {"requester": "Sofia",   "request_type": ["access"],                 "urgency": ["high"],           "due_date": ["2026-11-16"]},
+    "18": {"requester": "Ben",     "request_type": ["other"],                  "urgency": ["low"],            "due_date": [null]},
+    "19": {"requester": "Hiro",    "request_type": ["access", "other"],        "urgency": ["normal"],         "due_date": ["2026-11-25"]},
+    "20": {"requester": "Mia",     "request_type": ["other"],                  "urgency": ["low"],            "due_date": [null]}
+  }
+}
