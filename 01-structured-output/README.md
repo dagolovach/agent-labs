@@ -16,6 +16,16 @@ Before reading, write in two lines what you think a schema guarantees and what i
 - [Eugene Yan: Patterns for building LLM-based systems & products](https://eugeneyan.com/writing/llm-patterns)
   — read the guardrails and defensive UX parts: why checks sit around the model even when its output is valid.
 
+Then close the sources and ask Claude for the reading check: six questions, one at a time, answered out loud or
+on paper. For this lab they sound like:
+
+1. Without looking: what does structured output guarantee, and what doesn't it?
+2. Explain to a friend who isn't an engineer why "reply in JSON" can still break a program.
+3. What breaks in a real system without a schema, and what breaks even with one?
+4. Where does Theo depend on a guaranteed shape? Where would a valid-but-wrong value hurt?
+5. When is a schema not worth it, or not enough? What do guardrails add?
+6. Your prediction for this lab, in numbers.
+
 Note the one idea you will test. After the lab, come back: what matched your numbers, what didn't?
 
 ## The setup

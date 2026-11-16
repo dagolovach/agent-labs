@@ -43,6 +43,8 @@ If he asks you to skip these, remind him once why they exist, then do what he de
 One lab a week. Reading comes first and is the theory for both the lab and the post:
 
 1. **Read first** — the lab's sources from `reading.md` (45–60 minutes), after a 5-minute written first guess.
+   Then the **reading check**: six questions from Claude (recall, explain simply, why, apply, limits, predict),
+   answered out loud or on paper; the protocol and the notes live in the private `career` repo.
 2. **Your part** — check the ground truth, add own cases, predict.
 3. **Lab** — run, read the failures, compare with the reading.
 4. **Post** — from `LOG.md` and his voice note; the reading becomes the "how others do it" part, quoted and
