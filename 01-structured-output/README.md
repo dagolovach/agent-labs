@@ -22,7 +22,8 @@ on paper. For this lab they sound like:
 1. Without looking: what does structured output guarantee, and what doesn't it?
 2. Explain to a friend who isn't an engineer why "reply in JSON" can still break a program.
 3. What breaks in a real system without a schema, and what breaks even with one?
-4. Where does Theo depend on a guaranteed shape? Where would a valid-but-wrong value hurt?
+4. Where does a network, or a system you know, depend on a guaranteed shape? Where would a valid-but-wrong value
+   hurt?
 5. When is a schema not worth it, or not enough? What do guardrails add?
 6. Your prediction for this lab, in numbers.
 
@@ -71,7 +72,7 @@ export ANTHROPIC_API_KEY=...        # or `ant auth login`
 
 Then the same with `--model claude-sonnet-5-5` and `--model claude-opus-5-5`. With 20 messages, 2 arms and 3 runs
 that is 120 calls per model; on Haiku 5.5 it costs well under a dollar. The script prints the real cost of
-every run. Theo's Reader uses Haiku 5.5, so start there.
+every run. Start with Haiku 5.5.
 
 ## Read the results yourself
 
@@ -95,9 +96,12 @@ Then answer, in your own words:
 
 - **The API:** structured outputs constrain the reply to a JSON schema, and strict tool use does the same for
   tool arguments. Both guarantee shape, not truth. (Links to the official docs go here when the post is written.)
-- **Theo:** the Reader has no tools and returns JSON only; code checks it and keeps a date or an amount only if
-  it really appears in the text. Only checked fields ever reach the model that can act (`docs/SPEC.md` §6 in
-  the Theo repository).
+
+## The network analogy
+
+Draft, for you to correct or replace: YANG and NETCONF versus screen-scraping CLI output. A YANG model guarantees
+that a config has the right shape; it does not guarantee that the config is right. Pre-change checks still decide
+whether it goes in. The post uses your version.
 
 ## Questions to answer out loud (3 minutes each, no notes)
 
