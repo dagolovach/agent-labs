@@ -1,8 +1,8 @@
 # Agent labs
 
-Small, runnable labs that each show one principle of building AI agents that are safe to let act. Every lab
-breaks the naive version, fixes it, and reports real numbers: shape, correctness, cost and time. Each one can be
-re-run on a new model.
+Small, runnable labs: I build and test AI agents one principle at a time, measure what they do, and write it
+down. Every lab breaks the naive version, fixes it, and reports real numbers: shape, correctness, cost and time.
+Each one can be re-run on a new model.
 
 | # | Lab | The principle |
 | --- | --- | --- |

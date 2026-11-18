@@ -2,29 +2,49 @@
 
 ## What this is
 
-Small, runnable labs. Each lab shows one principle of building AI agents that are safe to let act: break the
-naive version, fix it, report real numbers (shape, correctness, cost, time). The owner, Dmitry Golovach
-(2× CCIE, network engineer moving into applied AI architecture), uses the labs to learn how agents are built in
-detail; each lab also becomes a post on dmitrygolovach.com.
+Small, runnable labs. The owner, Dmitry Golovach (principal engineer, 2× CCIE), builds and tests AI agents,
+measures what they do, and writes it down. Each lab shows one principle: break the naive version, fix it, report
+real numbers (shape, correctness, cost, time). The labs are how he learns how agents are built in detail; each
+lab also becomes a post on dmitrygolovach.com.
 
 ## The program (one lab at a time, in this order)
 
+Each lab has a suggested network analogy. All twelve are **drafts for the owner to correct**; the post uses his
+version.
+
 1. Structured output — "reply in JSON" is a wish; a schema guarantees shape, never truth. **Done, waiting for the
    owner's first run.**
+   Analogy (draft): YANG/NETCONF vs screen-scraping CLI output; the schema guarantees the shape, not that the
+   config is right.
 2. Quarantine — untrusted text never reaches the model that has tools.
+   Analogy (draft): segmentation and a DMZ; untrusted traffic ends in a zone that cannot reach the core.
 3. Tools and the loop — the model proposes a call, code runs it; stop rules and step limits.
+   Analogy (draft): TTL and hop limits; a forwarding loop ends by rule, not by hope.
 4. The model proposes, code decides — dates, amounts and counts are computed in code.
+   Analogy (draft): a peer advertises routes, but your route policy and prefix filters decide what gets installed.
 5. Retries and idempotency — why a retry creates a second task; keys and an outbox.
+   Analogy (draft): change scripts that are safe to re-run; TCP sequence numbers that drop a duplicate segment.
 6. Least privilege — permission tiers auto / confirm / never.
+   Analogy (draft): RBAC and AAA command authorization on devices; show commands run, config needs approval, some
+   commands never.
 7. Evals — pass@k vs pass^k; how you know it works.
+   Analogy (draft): pre- and post-change validation; the same checks before and after every change, every time.
 8. Context, memory and caching — what the model actually remembers, and what caching saves.
+   Analogy (draft): ARP and MAC tables that age out; a device knows only what is in the table right now.
 9. Logs and traces — answering "why did the agent do that?" a week later.
+   Analogy (draft): syslog, NetFlow and the post-mortem; reconstructing why traffic went where it did.
 10. Timeouts and fallbacks when the model is down.
+    Analogy (draft): BFD and failover; detect a dead path fast and move to the backup by rule.
 11. Retrieval with sources (RAG).
+    Analogy (draft): answer from the source of truth (IPAM, inventory) and cite the record, not from memory.
 12. Several agents and an orchestrator.
+    Analogy (draft): a controller that holds the intent and devices that do the forwarding.
 
-Networks appear only as analogies (zones/DMZ for quarantine, ACLs for least privilege, TCP sequence numbers for
-idempotency), never as separate network labs.
+## Every post has a network analogy
+
+Every lab's post contains one network analogy: the same principle as it shows up in network operations. The
+analogy is the owner's: you may draft one, he corrects or replaces it, and the post uses his words. It explains the
+principle; it never replaces the lab's numbers, and networks never become separate labs.
 
 ## The owner's part is the point
 
@@ -57,7 +77,7 @@ search, never from memory. Update `reading.md` and the lab README's "Read first"
 
 - Folder `NN-short-name/` with `README.md`, `lab.py`, its data files, and `results/` (git-ignored).
 - README sections: the principle in one sentence · why it matters later · read first · the setup · your part before any
-  code runs · run it · read the results yourself · how big systems do this · in Theo · questions to answer out
+  code runs · run it · read the results yourself · how big systems do this · the network analogy · questions to answer out
   loud · what went into this lab (an honest line on AI help).
 - Python, the official `anthropic` SDK, `pydantic`. Minimal: one file, readable top to bottom, under ~250 lines.
 - Every lab prints its cost from `response.usage` and the price table, its time, and pass^k over `--runs`.
@@ -76,6 +96,7 @@ an entry at the top:
 - Numbers: only from this lab's own runs (model, runs, the key figures); "not run yet" when there are none.
 - Surprised: what did not go as predicted, or "nothing yet".
 - Takeaway: one line a reader could quote.
+- Network analogy: the owner's version for this lab's post, or "not chosen yet".
 - Hooks: two or three first lines for a post.
 ```
 
@@ -94,7 +115,5 @@ notes, never in this repository. A post never states a number or conclusion that
 
 ## Related
 
-- Theo (private repo `dagolovach/inhand`) is the owner's production assistant; many labs have a Theo
-  counterpart (the Reader with no tools, the outbox, permission tiers, evals at pass^3).
 - The plan with weekly learning, posts and mocks: the "Posts and learning plan" doc
   (https://claude.ai/artifact/FV6LczSAHbeBAwY7C2vW3H).
