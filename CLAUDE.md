@@ -10,7 +10,7 @@ lab also becomes a post on dmitrygolovach.com.
 ## The program (one lab at a time, in this order)
 
 The order to build them: 1, 2, 3, 7, 4, 5, 6, 8, 9, 10, 11, 12. Lab 7 (evals) comes right after lab 3 (the
-owner's decision, 2026-11-20): evals are the skill asked for most, and labs 1 to 3 give it something to test.
+owner's decision, 2026-11-20): evals are the most asked skill that a lab can show, and labs 1 to 3 give it something to test.
 The numbers stay as they are. More cases (13 to 17) and their place in the order are in `CASES.md`.
 
 Each lab has a suggested network analogy. All twelve are **drafts for the owner to correct**; the post uses his

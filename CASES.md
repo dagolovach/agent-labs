@@ -258,7 +258,7 @@ Five more cases cover skills the twelve labs don't show. Three are built like la
 ## Order
 
 The labs go in this order: 1, 2, 3, 7, 4, 5, 6, 8, 9, 10, 11, 12. Lab 7 (evals) comes right after lab 3 (my
-decision, 2026-11-20): evals are the skill asked for most, and labs 1 to 3 give lab 7 something to test. Case 17
+decision, 2026-11-20): evals are the most asked skill that a lab can show, and labs 1 to 3 give lab 7 something to test. Case 17
 comes right after lab 7, since it reuses lab 7's test set. Case 13 starts small (read-only, one tool) as a side
 study and is finished after lab 6. Cases 14 and 15 are write-ups done next to the labs. Case 16 comes last, after
 labs 7 and 9 and case 13.
