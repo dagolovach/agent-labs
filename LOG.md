@@ -2,6 +2,17 @@
 
 Newest first. One entry per working session; posts are written from these entries.
 
+## 2026-11-20 — Every lab is a made-up client case
+
+- Done: added `CASES.md`: a template (client, problem, inputs, success, rule/agent/person, solution, result,
+  network analogy, what I learned, a question to readers) and a draft client brief for each of the twelve labs.
+  Labeled as made up; no lab code changed.
+- Numbers: none.
+- Surprised: nothing yet.
+- Takeaway: a lab told as a client's problem shows the judgment, not only the technique.
+- Network analogy: not chosen yet.
+- Hooks: none yet.
+
 ## 2026-11-16 — Reading before every lab
 
 - Done: added `reading.md` (checked sources for labs 1–7, placeholders for 8–12) and a "Read first" section to
