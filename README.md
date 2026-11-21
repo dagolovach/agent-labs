@@ -12,6 +12,9 @@ Each one can be re-run on a new model.
 Each lab starts with its reading: [reading.md](reading.md). Each lab is told as a made-up client case:
 [CASES.md](CASES.md).
 
+Next: a small multi-agent system I build myself to run the labs, as a pretend agency where each lab is a client
+project. The plan: [agency/PLAN.md](agency/PLAN.md).
+
 ## Running a lab
 
 ```bash
