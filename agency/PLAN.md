@@ -14,6 +14,11 @@ pipeline for one lab, and add staff only where my time goes.**
 
 Status: plan only. No code yet.
 
+**Two repos.** This repo is public, so it keeps only the labs, their outputs and the agency's plain code. The
+brain (the company map, every role's prompt, my corrections, the run files and the review queue) lives in a
+**separate private repo**, for example `agency-brain` (the name is mine to choose). The code reads it from a path;
+nothing from it is ever committed or logged here.
+
 ## 1. How it works, in one picture
 
 ```
@@ -46,7 +51,7 @@ apps*); my part stays mine (ground truth, prediction, reading the failures, my o
 
 ## 3. Handoffs: files, not chat
 
-Each stage writes one file in `agency/runs/<project>/<date>/` and the next stage reads only that file. Model
+Each stage writes one file in `runs/<project>/<date>/` in the private repo and the next stage reads only that file. Model
 outputs that code depends on are **structured outputs** (`messages.parse()` with a Pydantic model), so a handoff
 always has its shape; code then checks the meaning (lab 1). Untrusted text (client data, web pages) never reaches
 a role with tools as free text (lab 2). `state.json` records which stages are done, so a failed stage re-runs
@@ -68,33 +73,42 @@ alone and never repeats a finished one (lab 5).
   evals. On Opus 5.5 effort defaults to `medium`, so each role sets it; thinking is adaptive; forced
   `tool_choice` returns an error, so JSON handoffs use structured outputs.
 
-## 5. The brain
+## 5. The brain (private repo)
 
-One folder, `agency/brain/`, read by every role before it works. Prompts live here as markdown, not inside the
-code, so the brain is separate from the model.
+Every role reads the brain before it works. Prompts live there as markdown, not inside the code, so the brain is
+separate from the model and from the public code.
 
 ```
-agency/
+agency-brain/  (private)
   company-map.md        every role reads this first: who we are, how we work, where things are, the rules
-  brain/
-    memory/             clients.md (made-up clients), decisions/ (one dated file per decision)
-    judgment/           voice.md (plain English, no idioms), policies.md (never invent a number, nothing from
+  memory/               clients.md (made-up clients), decisions/ (one dated file per decision)
+  judgment/             voice.md (plain English, no idioms), policies.md (never invent a number, nothing from
                         an employer, what needs my yes), approved-claims.md (numbers that came from real runs)
-    capability/         roles/<role>.md (each role's prompt, written by me), skills/<skill>.md (prompt parts
+  capability/           roles/<role>.md (each role's prompt, written by me), skills/<skill>.md (prompt parts
                         that worked twice, reused by several roles)
-    learning/           corrections.md (what I changed, dated), what-worked.md
-  staff/                llm.py, budget.py, lead.py, tools.py, one small file per role
-  evals/                fixtures and checks for each role
-  runs/                 one folder per run (not committed)
+  learning/             corrections.md (what I changed, dated), what-worked.md
+  evals/                each role's test inputs and expected checks
+  runs/                 one folder per run: handoff files, state.json, cost ledger, trace
+  queue/                my review items
+
+agent-labs/agency/  (public)
+  PLAN.md               this plan
+  staff/                lead.py, llm.py, budget.py, tools.py, one small file per role: code only, no prompts
+  checks/               the code that scores role evals, and the leak check (section 8)
 ```
+
+**How the code finds the brain.** One setting, `AGENCY_BRAIN`, is the path to my local checkout of the private
+repo. The lead loads the company map and the role prompts from it, writes every run file and queue item into it,
+and stops with an error if it is not set. It never writes into the public checkout, except the lab files the
+Engineer builds there after my check.
 
 **How my edits feed it.** After each check, code saves the difference between the draft and my version to
 `learning/corrections.md`. The Librarian reads it and proposes up to three short changes to `judgment/` or a
 role's prompt, as a diff. I approve or drop each one; an approved change is committed with an owner and a date.
 A mistake is fixed once, in the brain, and stays fixed for every role.
 
-The repo is public, so the brain holds only how the agency works: no job search, no private life, nothing from my
-employer.
+Even in the private repo the brain holds only how the agency works: no job search, no private life, nothing from
+my employer.
 
 ## 6. Each lab is a client project
 
@@ -103,7 +117,8 @@ The lab folder is the project folder, so nothing moves:
 - `brief.md` — the client case from `CASES.md` (who, problem, inputs, success agreed before building)
 - the deliverable — `lab.py`, its data and `README.md`, as today
 - `expected.json` and the offline stub test — the project's evals
-- `retro.md` — what worked, what I changed, what goes into the brain, the cost and time of the project
+- `retro.md` — a short public retro: what worked, cost, time, QA rounds. My corrections and the brain changes
+  stay in the private repo.
 - the post — written in my private career repo, as today; `retro.md` links to it. No post text in this repo.
 
 ## 7. My review: two batches per project
@@ -113,7 +128,7 @@ The lab folder is the project folder, so nothing moves:
 2. **After the run:** I read the failures myself and record a voice note. The Writer drafts the posts from it; I
    edit in the same sitting.
 
-Both checks land as one file each in a queue folder, so I can review a batch at once. Nothing is posted, sent,
+Both checks land as one file each in the private repo's `queue/`, so I can review a batch at once. Nothing is posted, sent,
 pushed or paid by any role.
 
 ## 8. Cost guard and safety
@@ -124,15 +139,25 @@ pushed or paid by any role.
 - Before a real lab run, the lead prints the number of calls and an estimated cost, and waits for my yes.
 - The Engineer can write only inside its sandbox folder. No role can push, post or send. API keys stay in the
   environment, never in the brain or the logs.
+- **Nothing private reaches the public repo.** `.gitignore` here blocks `runs/`, `queue/` and any `brain/`
+  folder. A leak check (`agency/checks/leaks.py`, run before every commit and in CI) fails if a staged file sits
+  outside the allowed paths, or contains a line from a role prompt or from `learning/` (it compares against the
+  private checkout when it is there). The lead logs counts, costs and file names only, never prompt or brain
+  text, because Actions logs on a public repo are public.
 
 ## 9. Where it runs
 
 No server to start. Three stages, each only when the one before is not enough:
 
-1. **Now: on my laptop.** The brain is this git repo (markdown files); brain changes go through PRs. The staff are
-   Python scripts I run with one command, for example `python agency/staff/lead.py 01-structured-output`.
+1. **Now: on my laptop.** Both repos are checked out side by side. Brain changes go through PRs in the private
+   repo. The staff are Python scripts I run with one command, for example
+   `AGENCY_BRAIN=../agency-brain python agency/staff/lead.py 01-structured-output`.
 2. **Later: GitHub Actions** for repeat jobs: re-run the role evals when a prompt changes, or re-run a lab's evals
-   on a new model on a schedule. The API key lives in the repo's secrets.
+   on a new model on a schedule. The workflows that need the brain live **in the private repo**: they check out
+   both repos (the public one needs no key; the private one is the workflow's own) and write results back only to
+   the private repo. If a workflow in the public repo ever needs the brain, it gets a read-only deploy key or a
+   fine-grained token as a secret, runs only on pushes to `main` (never on pull requests from forks), and prints
+   nothing from the brain. The API key lives in secrets either way.
 3. **Much later: Cloudflare** (Workers or its Agents SDK), only for agents that must always be on or for a small
    web page to review the queue. A good second milestone, not the first step.
 
@@ -163,7 +188,7 @@ No server to start. Three stages, each only when the one before is not enough:
 
 Build order, one small PR each:
 
-1. `company-map.md`, the brain folders, `llm.py` and the cost ledger.
+1. The private brain repo with `company-map.md` and its folders; here, `llm.py`, the cost ledger and the leak check.
 2. Runner, Analyst and Writer, used on lab 1 as it is today (it needs its first real run anyway).
 3. Architect, Engineer and QA: rebuild lab 1 from its brief in a sandbox, and compare it with the hand-built one.
 4. Librarian and the corrections loop.

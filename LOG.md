@@ -5,8 +5,8 @@ Newest first. One entry per working session; posts are written from these entrie
 ## 2026-11-21 — The agency: plan
 
 - Done: wrote `agency/PLAN.md`, a plan for a multi-agent system I build myself (Messages API, my own prompts) to
-  run the labs, as a pretend agency: each lab is a client project, the agents are the staff, a brain folder keeps
-  every fix. First milestone: lab 1 end to end. No code yet.
+  run the labs, as a pretend agency: each lab is a client project, the agents are the staff, a brain in a
+  separate private repo keeps every fix. First milestone: lab 1 end to end. No code yet.
 - Numbers: none.
 - Surprised: nothing yet.
 - Takeaway: start with one pipeline in plain code and add agents only where my time goes.
