@@ -1,3 +1,9 @@
 .venv/
 results/
 __pycache__/
+
+# The agency brain lives in a private repo; never commit it here
+runs/
+review/
+lessons/
+roles/
