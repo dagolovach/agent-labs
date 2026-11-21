@@ -4,5 +4,6 @@ __pycache__/
 
 # The agency brain lives in a private repo; never commit it here
 runs/
-queue/
-brain/
+review/
+lessons/
+roles/
