@@ -11,8 +11,7 @@ Each one can be re-run on a new model.
 
 Each lab starts with its reading: [reading.md](reading.md).
 
-Next: a small multi-agent system I build myself to run the labs, as a pretend agency where each lab is a client
-project. The plan: [agency/PLAN.md](agency/PLAN.md).
+Next: a small multi-agent system I build myself to run the labs.
 
 ## Running a lab
 

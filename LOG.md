@@ -2,16 +2,15 @@
 
 Newest first. One entry per working session; posts are written from these entries.
 
-## 2026-11-21 — The agency: plan
+## 2026-11-21 — A multi-agent system for the labs: plan
 
-- Done: wrote `agency/PLAN.md`, a plan for a multi-agent system I build myself (Messages API, my own prompts) to
-  run the labs, as a pretend agency: each lab is a client project, the agents are the staff, a brain in a
-  separate private repo keeps every fix. First milestone: lab 1 end to end. No code yet.
+- Done: planned a small multi-agent system I build myself to run the labs. The plan is private for now. No code
+  yet.
 - Numbers: none.
 - Surprised: nothing yet.
 - Takeaway: start with one pipeline in plain code and add agents only where my time goes.
 - Network analogy: not chosen yet.
-- Hooks: "I run a pretend AI agency. Every fix I make goes into one brain." (Only with numbers from project 1.)
+- Hooks: none yet.
 
 ## 2026-11-16 — Reading before every lab
 

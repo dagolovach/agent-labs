@@ -2,7 +2,7 @@
 results/
 __pycache__/
 
-# The agency brain lives in a private repo; never commit it here
+# Private files never go in this repo
 runs/
 review/
 lessons/
