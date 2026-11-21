@@ -16,7 +16,7 @@ Status: plan only. No code yet.
 
 **Two repos.** This repo is public, so it keeps only the labs, their outputs and the agency's plain code. The
 brain (the company map, every role's prompt, my corrections, the run files and the review queue) lives in a
-**separate private repo, `agency-brain`**. The code reads it from a path;
+**separate private repo, [`agency-brain`](https://github.com/dagolovach/agency-brain)**. The code reads it from a path;
 nothing from it is ever committed or logged here.
 
 ## 1. How it works, in one picture
