@@ -46,6 +46,14 @@ Every lab's post contains one network analogy: the same principle as it shows up
 analogy is the owner's: you may draft one, he corrects or replaces it, and the post uses his words. It explains the
 principle; it never replaces the lab's numbers, and networks never become separate labs.
 
+## Every lab is a made-up client case
+
+Each lab is told as an invented client's problem, labeled as invented: the client, the problem, inputs and
+limits, what success looks like, how he solves it, the result, the network analogy, what he learned, and a
+question to readers. The template and a draft brief for every lab are in `CASES.md`. The briefs are drafts for
+the owner to correct; the solution, conclusions and analogy are his. A brief never invents numbers about the
+client; the result numbers come only from the lab's runs.
+
 ## The owner's part is the point
 
 The labs exist so the owner learns. Never do his part for him:
@@ -76,7 +84,8 @@ search, never from memory. Update `reading.md` and the lab README's "Read first"
 ## How a lab is built
 
 - Folder `NN-short-name/` with `README.md`, `lab.py`, its data files, and `results/` (git-ignored).
-- README sections: the principle in one sentence · why it matters later · read first · the setup · your part before any
+- README sections: the principle in one sentence · why it matters later · read first · the setup (the client case
+  from `CASES.md`) · your part before any
   code runs · run it · read the results yourself · how big systems do this · the network analogy · questions to answer out
   loud · what went into this lab (an honest line on AI help).
 - Python, the official `anthropic` SDK, `pydantic`. Minimal: one file, readable top to bottom, under ~250 lines.

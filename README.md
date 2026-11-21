@@ -9,7 +9,8 @@ Each one can be re-run on a new model.
 | 1 | [Structured output](01-structured-output/) | "Reply in JSON" is a wish; a schema guarantees shape, never truth |
 | 2 | Quarantine (next) | Untrusted text never reaches the model that has tools |
 
-Each lab starts with its reading: [reading.md](reading.md).
+Each lab starts with its reading: [reading.md](reading.md). Each lab is told as a made-up client case:
+[CASES.md](CASES.md).
 
 Next: a small multi-agent system I build myself to run the labs, as a pretend agency where each lab is a client
 project. The plan: [agency/PLAN.md](agency/PLAN.md).
