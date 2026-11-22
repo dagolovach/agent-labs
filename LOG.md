@@ -2,6 +2,19 @@
 
 Newest first. One entry per working session; posts are written from these entries.
 
+## 2026-11-22 — The lab blueprint
+
+- Done: added `BLUEPRINT.md` (one fixed stack, one folder shape, an 11-step build order, what changes per case
+  and what never changes, how HQ uses it) and `lab-template/` (README in the fixed sections, `lab.py` with the
+  parts marked `CASE`, example data). New flags in the template: `--stub` (offline test, no cost) and `--effort`.
+  Tested offline with `--stub` only.
+- Numbers: none (no real run).
+- Surprised: nothing yet.
+- Takeaway: decide the stack once, so each lab only changes the case.
+- Network analogy: not chosen yet (a draft: a golden config template that every new site is built from).
+- Hooks: "Every lab I build uses the same stack. Only the client changes." / "I stopped choosing tools for
+  each project."
+
 ## 2026-11-21 — The agency: plan
 
 - Done: wrote `agency/PLAN.md`, a plan for a multi-agent system I build myself (Messages API, my own prompts) to

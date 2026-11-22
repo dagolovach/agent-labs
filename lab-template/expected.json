@@ -1,0 +1,8 @@
+{
+  "_note": "EXAMPLE labels for the example inputs. Replace both files with the case's own. These labels are a DRAFT: the owner checks every row before any real run. A list means any of those values counts as right.",
+  "labels": {
+    "1": {"device": "core-sw-01",    "severity": ["high"]},
+    "2": {"device": "branch-rtr-07", "severity": ["low"]},
+    "3": {"device": "access-sw-12",  "severity": ["medium", "high"]}
+  }
+}
