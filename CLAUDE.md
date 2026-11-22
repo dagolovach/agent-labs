@@ -75,15 +75,18 @@ search, never from memory. Update `reading.md` and the lab README's "Read first"
 
 ## How a lab is built
 
-- Folder `NN-short-name/` with `README.md`, `lab.py`, its data files, and `results/` (git-ignored).
-- README sections: the principle in one sentence · why it matters later · read first · the setup · your part before any
-  code runs · run it · read the results yourself · how big systems do this · the network analogy · questions to answer out
-  loud · what went into this lab (an honest line on AI help).
-- Python, the official `anthropic` SDK, `pydantic`. Minimal: one file, readable top to bottom, under ~250 lines.
+Every lab follows `BLUEPRINT.md`: one fixed stack, one folder shape, one build order. Start a new lab with
+`cp -r lab-template NN-short-name`, change only the parts marked `CASE` in `lab.py`, and fill the README in the
+template's sections. In short:
+
+- Python, the official `anthropic` SDK, `pydantic`, JSON data files. One `lab.py`, readable top to bottom, under
+  ~250 lines. No web server, front end, Docker or agent framework in a lab.
 - Every lab prints its cost from `response.usage` and the price table, its time, and pass^k over `--runs`.
 - `--model` is a flag, so the same lab can be re-run on a new model ("same test, new model" posts).
-- Test the scoring offline with a stub client before handing a lab over; say plainly that the real-model run
+- `lab.py --stub` tests the scoring offline before a lab is handed over; say plainly that the real-model run
   has not happened yet when it hasn't.
+- A new tool joins the stack only when a lab cannot show its principle without it; then `BLUEPRINT.md` says
+  why, with the date.
 
 ## LOG.md — the bridge to posts
 
