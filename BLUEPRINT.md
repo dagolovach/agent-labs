@@ -34,8 +34,9 @@ principle, and everything else is noise and setup time.
 later lab, and this file says why, with the date.
 
 **The bigger stack is for cases 15 and 16 only.** When a case becomes a running service (back end, database,
-front end, the model layer, deployment), it uses the five-layer stack in my career notes (`APPLY.md`). That is
-decided when case 15 is written, not here.
+front end, the model layer, deployment), it uses the five-layer stack in my career notes (`APPLY.md`). Its
+database is plain Postgres in Docker, not Supabase (my decision, 2026-11-22): no vendor lock-in, and it runs the
+same on my laptop and on a server.
 
 ## 2. One folder per lab
 
@@ -86,7 +87,8 @@ In `lab.py`, the parts that change are marked `CASE`. Everything else is copied 
 
 ## 5. How HQ uses it
 
-HQ (my multi-agent system that runs the labs) builds every lab from this template:
+HQ (my multi-agent system that runs the labs) always builds a lab from this template, never from scratch (my
+decision, 2026-11-22):
 
 - The Architect's spec has the same parts as the `CASE` parts: the inputs, the ground truth, the `Output` class
   and the two arms.

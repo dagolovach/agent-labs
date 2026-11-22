@@ -7,7 +7,8 @@ Newest first. One entry per working session; posts are written from these entrie
 - Done: added `BLUEPRINT.md` (one fixed stack, one folder shape, an 11-step build order, what changes per case
   and what never changes, how HQ uses it) and `lab-template/` (README in the fixed sections, `lab.py` with the
   parts marked `CASE`, example data). New flags in the template: `--stub` (offline test, no cost) and `--effort`.
-  Tested offline with `--stub` only.
+  Tested offline with `--stub` only. My decisions: HQ always builds a lab from the template; cases 15–16 use plain
+  Postgres in Docker, not Supabase.
 - Numbers: none (no real run).
 - Surprised: nothing yet.
 - Takeaway: decide the stack once, so each lab only changes the case.
